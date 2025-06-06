@@ -1,42 +1,125 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  background-color: #ffffff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Estilos para la tabla de películas */
+.peliculas-section {
+  flex: 1;
+  padding: 20px;
+  border-right: 2px solid #ccc;
+  overflow-x: auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filtro-container {
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.filtro-container label {
+  display: inline-block;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
-.card {
-  padding: 2em;
+.filtro-container input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100px;
 }
 
-.read-the-docs {
-  color: #888;
+.peliculas-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.peliculas-table th,
+.peliculas-table td {
+  border: 1px solid #000;
+  padding: 8px;
+  text-align: left;
+}
+
+.peliculas-table th {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.pelicula-antigua {
+  background-color: yellow;
+}
+
+.btn-favorito {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.btn-favorito:enabled {
+  background-color: #007bff;
+  color: white;
+}
+
+.btn-favorito:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+/* Estilos para favoritos */
+.favoritos-section {
+  width: 350px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-left: 2px solid #ccc;
+}
+
+.favoritos-title {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.favorito-card {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.favorito-title {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.favorito-info {
+  margin: 4px 0;
+  font-size: 12px;
+}
+
+.btn-quitar {
+  padding: 6px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.btn-quitar:hover {
+  background-color: #c82333;
+}
+
+.no-favoritos {
+  font-style: italic;
+  color: #666;
 }

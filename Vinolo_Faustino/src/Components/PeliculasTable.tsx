@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Pelicula as PeliculaType } from '../Contexts/MovieContext'; // Ruta ya corregida
+import { Pelicula as PeliculaType } from '../Contexts/MovieContext';
 import Pelicula from './Pelicula';
-import peliculasData from '../Data/peliculas.json'; // Importar datos del JSON
+import peliculasData from '../Data/peliculas.json';
 
 const PeliculasTable: React.FC = () => {
     const [peliculas] = useState<PeliculaType[]>(peliculasData);
@@ -19,9 +19,11 @@ const PeliculasTable: React.FC = () => {
     };
 
     return (
-        <div style={{ padding: '10px', width: '70%', boxSizing: 'border-box' }}>
-            <div style={{ marginBottom: '15px' }}>
-                <label htmlFor="filtroVentas" style={{ marginRight: '10px', fontSize: '14px' }}>
+        <div className="peliculas-section">
+            <h2>Películas</h2>
+
+            <div className="filtro-container">
+                <label htmlFor="filtroVentas">
                     Filtrar por ventas superiores a:
                 </label>
                 <input
@@ -30,30 +32,19 @@ const PeliculasTable: React.FC = () => {
                     min="0"
                     placeholder="0"
                     onChange={handleFiltroChange}
-                    style={{
-                        padding: '5px',
-                        border: '1px solid #ccc',
-                        borderRadius: '3px',
-                        width: '80px',
-                        fontSize: '14px'
-                    }}
                 />
+                <span> millones</span>
             </div>
 
-            <table style={{
-                width: '100%',
-                borderCollapse: 'collapse',
-                border: '1px solid #000',
-                fontSize: '12px'
-            }}>
+            <table className="peliculas-table">
                 <thead>
-                <tr style={{ backgroundColor: '#f0f0f0' }}>
-                    <th style={{ padding: '8px', border: '1px solid #000', textAlign: 'left', fontWeight: 'bold' }}>Título</th>
-                    <th style={{ padding: '8px', border: '1px solid #000', textAlign: 'left', fontWeight: 'bold' }}>Director</th>
-                    <th style={{ padding: '8px', border: '1px solid #000', textAlign: 'left', fontWeight: 'bold' }}>Género</th>
-                    <th style={{ padding: '8px', border: '1px solid #000', textAlign: 'left', fontWeight: 'bold' }}>Ventas</th>
-                    <th style={{ padding: '8px', border: '1px solid #000', textAlign: 'left', fontWeight: 'bold' }}>Año</th>
-                    <th style={{ padding: '8px', border: '1px solid #000', textAlign: 'left', fontWeight: 'bold' }}>Acción</th>
+                <tr>
+                    <th>Título</th>
+                    <th>Director</th>
+                    <th>Género</th>
+                    <th>Ventas</th>
+                    <th>Año</th>
+                    <th>Acciones</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -64,7 +55,7 @@ const PeliculasTable: React.FC = () => {
             </table>
 
             {peliculasFiltradas.length === 0 && peliculas.length > 0 && (
-                <p style={{ marginTop: '10px', fontSize: '14px', color: '#666' }}>
+                <p style={{ marginTop: '20px', fontStyle: 'italic', color: '#666' }}>
                     No hay películas que superen los {filtroVentas} millones en ventas.
                 </p>
             )}

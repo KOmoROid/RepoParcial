@@ -6,13 +6,7 @@ import Favoritos from './Components/Favoritos';
 function App() {
     return (
         <MovieProvider>
-            <div style={{
-                display: 'flex',
-                minHeight: '100vh',
-                fontFamily: 'Arial, sans-serif',
-                margin: 0,
-                padding: 0
-            }}>
+            <div className="app-container">
                 <PeliculasTable />
                 <Favoritos />
             </div>
