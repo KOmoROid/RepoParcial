@@ -1,7 +1,7 @@
 import React from 'react';
-import { MovieProvider } from './contexts/MovieContext';
-import PeliculasTable from './components/PeliculasTable';
-import Favoritos from './components/Favoritos';
+import { MovieProvider } from './Contexts/MovieContext';
+import PeliculasTable from './Components/PeliculasTable';
+import Favoritos from './Components/Favoritos';
 
 function App() {
     return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMovies, Pelicula as PeliculaType } from '../contexts/MovieContext';
+import { useMovies, Pelicula as PeliculaType } from '../Contexts/MovieContext';
 
 interface PeliculaProps {
     pelicula: PeliculaType;
@@ -14,16 +14,23 @@ const Pelicula: React.FC<PeliculaProps> = ({ pelicula }) => {
 
     const esAntigua = pelicula.anio < 2000;
 
+    const cellStyle = {
+        padding: '6px',
+        border: '1px solid #000',
+        fontSize: '12px',
+        color: '#212529' // Añadir color de texto oscuro para visibilidad
+    };
+
     return (
         <tr style={{
             backgroundColor: esAntigua ? 'yellow' : 'white',
         }}>
-            <td style={{ padding: '6px', border: '1px solid #000', fontSize: '12px' }}>{pelicula.titulo}</td>
-            <td style={{ padding: '6px', border: '1px solid #000', fontSize: '12px' }}>{pelicula.director}</td>
-            <td style={{ padding: '6px', border: '1px solid #000', fontSize: '12px' }}>{pelicula.genero}</td>
-            <td style={{ padding: '6px', border: '1px solid #000', fontSize: '12px' }}>{pelicula.ventas}</td>
-            <td style={{ padding: '6px', border: '1px solid #000', fontSize: '12px' }}>{pelicula.anio}</td>
-            <td style={{ padding: '6px', border: '1px solid #000', fontSize: '12px' }}>
+            <td style={cellStyle}>{pelicula.titulo}</td>
+            <td style={cellStyle}>{pelicula.director}</td>
+            <td style={cellStyle}>{pelicula.genero}</td>
+            <td style={cellStyle}>{pelicula.ventas}</td>
+            <td style={cellStyle}>{pelicula.anio}</td>
+            <td style={{ ...cellStyle, textAlign: 'center' }}>
                 <button
                     onClick={handleAgregarFavorito}
                     disabled={esFavorito(pelicula.id)}

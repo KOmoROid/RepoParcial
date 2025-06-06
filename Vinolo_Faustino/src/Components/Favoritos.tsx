@@ -1,5 +1,5 @@
 import React from 'react';
-import { useMovies } from '../contexts/MovieContext';
+import { useMovies } from '../Contexts/MovieContext';
 
 const Favoritos: React.FC = () => {
     const { favoritos, quitarFavorito } = useMovies();
